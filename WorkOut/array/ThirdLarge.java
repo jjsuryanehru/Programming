@@ -1,28 +1,35 @@
-// Problem Link : https://www.geeksforgeeks.org/problems/second-largest3735/1?page=1&status=solved&sortBy=submissions
+// Problem Link : https://www.geeksforgeeks.org/problems/third-largest-element/1?page=1&difficulty=Easy&status=solved&sortBy=submissions
 
-//  Second Largest Element : 
+// Third Largest Element : 
 
 import java.util.*;
 
-public class SecondLarge{
+public class ThirdLarge{
     // Logic
     public static int largestElement(int[] arr)
     {
-        int max1 = -1 ;
-        int max2 = 0 ;
+        int max1 = -1;
+        int max2 = max1 ;
+        int max3 = max2 ;
 
         for(int num : arr)
         {
             if(max1 < num)
             {
+                max3 = max2 ;
                 max2 = max1 ;
                 max1 = num ; 
             }
-            else if(max1 > num && max2 <= num )
-                max2 = num ;
+            else if(max2 < num)
+            {
+                max3 = max2 ;
+                max2 = num ; 
+            }
+            else if(max3 < num)
+                max3 = num ;
         }
 
-        return max2 ;
+        return max3 ;
     }
 
     // Main Method
